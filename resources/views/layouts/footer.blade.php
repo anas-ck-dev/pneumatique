@@ -5,7 +5,7 @@
                     <div class="row">
                         <div class="col-lg-2 col-sm-6 pb-2 pb-sm-0 d-flex align-items-center">
                             <div class="widget m-b-3">
-                                <img src="assets/images/demoes/demo42/footer-logo.png" alt="Logo" width="202"
+                                <img src="/assets/images/demoes/demo42/footer-logo.png" alt="Logo" width="202"
                                     height="54" class="logo-footer">
                             </div><!-- End .widget -->
                         </div><!-- End .col-lg-3 -->
@@ -105,14 +105,14 @@
 
 <!-- Plugins JS File -->
 <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script src="{{ asset('assets/js/jquery.min.js')}}"></script>
-<script src="{{ asset('assets/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{ asset('assets/js/optional/isotope.pkgd.min.js')}}"></script>
-<script src="{{ asset('assets/js/plugins.min.js')}}"></script>
-<script src="{{ asset('assets/js/jquery.appear.min.js')}}"></script>
-<script src="{{ asset('assets/js/jquery.plugin.min.js')}}"></script>
+<script src="{{ asset('/assets/js/jquery.min.js')}}"></script>
+<script src="{{ asset('/assets/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{ asset('/assets/js/optional/isotope.pkgd.min.js')}}"></script>
+<script src="{{ asset('/assets/js/plugins.min.js')}}"></script>
+<script src="{{ asset('/assets/js/jquery.appear.min.js')}}"></script>
+<script src="{{ asset('/assets/js/jquery.plugin.min.js')}}"></script>
 
 <!-- Main JS File -->
-<script src="{{ asset('assets/js/main.min.js')}}"></script>
+<script src="{{ asset('/assets/js/main.min.js')}}"></script>
 <script>(function(){var js = "window['__CF$cv$params']={r:'7e41bb8e38741854',m:'ZtJgruW5gPYGuFgw7YgisfiFJGW86guwxfpe7uxGT.Y-1688917931-0-AeqjtFZftk3M33h30vfxRAvas8oq94x5EWw+w54Y7iU6'};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='../../cdn-cgi/challenge-platform/h/g/scripts/jsd/19b997cb/invisible.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.nonce = '';_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
 

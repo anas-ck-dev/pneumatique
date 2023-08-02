@@ -15,7 +15,18 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', [ProductController::class, 'index']);
-Route::get('/product/{name}', [ProductController::class, 'showByName']);
+// Route::get('/product/{name}', [ProductController::class, 'showByName']);
 
 
-Route::get('/product/search/{categorie}', [ProductController::class, 'searchByCategorie'])->name('product.searchByCategorie');
+Route::get('/product/search/{category}', [ProductController::class, 'searchByCategorie'])->name('product.searchByCategorie');
+
+Route::get('/category/{category}', [ProductController::class, 'cat']);
+
+Route::get('/contact', function(){
+    return view('contact');
+})->name('contact');
+
+
+Route::get('/about', function(){
+    return view('about');
+})->name('about');

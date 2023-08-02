@@ -1,11 +1,11 @@
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/icons/favicon.png')}}">
-    <link rel="preload" href="{{ asset('assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2')}}" as="font" type="font/woff2"
+    <link rel="icon" type="image/x-icon" href="{{ asset('/assets/images/icons/favicon.png')}}">
+    <link rel="preload" href="{{ asset('/assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2')}}" as="font" type="font/woff2"
         crossorigin="anonymous">
-    <link rel="preload" href="{{ asset('assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2')}}" as="font" type="font/woff2"
+    <link rel="preload" href="{{ asset('/assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2')}}" as="font" type="font/woff2"
         crossorigin="anonymous">
-    <link rel="preload" href="{{ asset('assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2')}}" as="font" type="font/woff2"
+    <link rel="preload" href="{{ asset('/assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2')}}" as="font" type="font/woff2"
         crossorigin="anonymous">
 
     <script>
@@ -14,18 +14,31 @@
         };
         ( function ( d ) {
             var wf = d.createElement( 'script' ), s = d.scripts[ 0 ];
-            wf.src = 'assets/js/webfont.js';
+            wf.src = '/assets/js/webfont.js';
             wf.async = true;
             s.parentNode.insertBefore( wf, s );
         } )( document );
     </script>
 
     <!-- Plugins CSS File -->
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css')}}">
 
     <!-- Main CSS File -->
-    <link rel="stylesheet" href="{{ asset('assets/css/demo42.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/demo42.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/vendor/fontawesome-free/css/all.min.css')}}">
+
+     <!-- OUR CSS File -->
+     <link rel="stylesheet" href="{{ asset('/assets/css/style.css')}}">
+
+
+     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+     <!-- Plugins CSS File -->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+	<!-- Main CSS File -->
+	<link rel="stylesheet" href="assets/css/style.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/vendor/simple-line-icons/css/simple-line-icons.min.css">
+
 </head>
 
 <body>
@@ -42,7 +55,7 @@
                             <i class="fas fa-bars"></i>
                         </button>
                         <a href="demo42.html" class="logo">
-                            <img src="assets/images/logobellhsen.png" class="w-100" width="202" height="80"
+                            <img src="/assets/images/logobellhsen.png" class="w-100" width="202" height="80"
                                 alt="Porto Logo">
                         </a>
                     </div><!-- End .header-left -->
@@ -100,7 +113,7 @@
                                                     <div class="col-lg-4 p-0">
                                                         <div class="menu-banner">
                                                             <figure>
-                                                                <img src="assets/images/menu-banner.jpg" width="192" height="313"
+                                                                <img src="/assets/images/menu-banner.jpg" width="192" height="313"
                                                                     alt="Menu banner">
                                                             </figure>
                                                             <div class="banner-content">
@@ -122,7 +135,9 @@
                                         </li>
                                         <li><a href="" rel="noopener" target="_blank">Services</a>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="{{route('contact')}}">Contact</a></li>
+                                        <li><a href="{{route('about')}}">About</a></li>
+
 
                                     </ul>
                                 </nav>

@@ -15,7 +15,12 @@ class ProductController extends Controller
         ->where('is_active', true)
         ->paginate(12);
 
-        $categorys = Category::Where('is_active', true)->orderBy('name', 'ASC')->get();
+        $categorys = Category::select('categories.id', 'categories.name')
+        ->selectRaw('(SELECT COUNT(*) FROM products WHERE products.category_id = categories.id) as count')
+        ->join('products', 'products.category_id', '=', 'categories.id')
+        ->where('products.is_active', 1)
+        ->DISTINCT()
+        ->get();
 
         return view('index', compact(['products', 'categorys']));
 
@@ -32,13 +37,30 @@ class ProductController extends Controller
          }
     }
 
-    public function searchByCategorie(Request $request){
-        
-        $products = Product::Where('category_id', $request->search_categorie);
+    public function searchByCategorie(Category $category){
+        $category_id =  $category->id;
+        $products = Product::Where('category_id', $category_id)
+        ->Where('is_active', true)
+        ->paginate(12);
 
-        $categorys = Category::Where('is_active', true)->orderBy('name', 'ASC')->get();
-        
-        return view('index', compact(['products', 'categorys']));
+        $categorys = Category::select('categories.id', 'categories.name')
+        ->selectRaw('(SELECT COUNT(*) FROM products WHERE products.category_id = categories.id) as count')
+        ->join('products', 'products.category_id', '=', 'categories.id')
+        ->where('products.is_active', 1)
+        ->DISTINCT()
+        ->get();
+
+        return view('index', compact(['products', 'categorys', 'category_id']));
+    }
+    public function cat(Category $category){
+        // printf($category->filsCategorys);
+        // echo $category->filsCategorys->getTotalProductsCount();
+        echo $category->getTotalProductsCount() . "</br>";
+        // foreach($category->filsCategorys as $cat){
+        //     echo "id " . $cat->id . " name " . $cat->name . " "; 
+        //     echo $cat->getTotalProductsCount() . "</br>";
+            
+        // }
     }
    
 }

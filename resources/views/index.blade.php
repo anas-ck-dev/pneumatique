@@ -20,7 +20,7 @@
                 'nav': true
 			}">
             <div class="banner intro-slide1"
-                style="background: url(assets/images/demoes/demo42/slider/slide1.jpg) rgb(255, 255, 255);
+                style="background: url(//assets/images/demoes/demo42/slider/slide1.jpg) rgb(255, 255, 255);
                 min-height: 530px; background-position: right center; background-repeat: no-repeat;">
                 <div class="container">
                     <div class="wrapper">
@@ -40,7 +40,7 @@
                     <div class="row h-100">
                         <div class="col-md-5 banner-media appear-animate d-none d-md-block"
                             data-animation-name="fadeInRightShorter">
-                            <img src="assets/images/demoes/demo42/banner1.jpg" width="426" height="426"
+                            <img src="/assets/images/demoes/demo42/banner1.jpg" width="426" height="426"
                                 alt="banner" />
 
                         </div>
@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="banner intro-slide2"
-                style="background: url(assets/images/demoes/demo42/slider/slide2.jpg) rgb(255, 255, 255);
+                style="background: url(/assets/images/demoes/demo42/slider/slide2.jpg) rgb(255, 255, 255);
                 min-height: 530px; background-position: left center; background-repeat: no-repeat;">
                 <div class="container">
                     <div class="wrapper">
@@ -87,7 +87,7 @@
                                 <div class=" appear-animate" data-animation-name="fadeInRightShorter"
                                     data-animation-delay="500">
                                     <div class="brand-logo px-3 mb-1">
-                                        <img src="assets/images/demoes/demo42/new_brand3_light.png" width="140"
+                                        <img src="/assets/images/demoes/demo42/new_brand3_light.png" width="140"
                                             height="60" alt="brand" />
                                     </div>
                                     <h3 class="banner-subtitle pt-1 mb-1">Save Up To 30%</h3>
@@ -123,7 +123,7 @@
                         </div>
                         <div class="col-md-5 banner-media appear-animate d-none d-md-block"
                             data-animation-name="fadeInLeftShorter">
-                            <img src="assets/images/demoes/demo42/banner2.jpg" width="504" height="347"
+                            <img src="/assets/images/demoes/demo42/banner2.jpg" width="504" height="347"
                                 alt="banner" />
                             <div class="mark-deal"><i>%
                                 </i></div>
@@ -145,41 +145,48 @@
 
                 </div>
                 
-                <form method="GET" action="{{route('product.searchByCategorie')}}">
+                <form method="GET" action="/product/search">
                     <div class="row search-form appear-animate" data-animation-name="fadeInUpShorter">
                         <div class="col-md-6 col-lg-4">
                             <div class="select-custom">
-                                <select class="form-control mb-0" name="search_categorie">
-                                    <option>Par Categories</option>
-                                    @foreach ($categorys as $categorya)
-                                        <option value="{{ $categorya->id }}">{{ $categorya->name }}</option>
+                                <select class="form-control mb-0" name="search_categorie" id="select1">
+                                    <option disabled>Par Categories</option>
+                                        @empty($category_id)
+                                            <?php $category_id =0;?>
+                                        @endempty
+                                    
+                                    @foreach ($categorys as $category)
+                                        
+                                        <option  value="{{ $category->id }}" @if ($category_id == $category->id)
+                                            selected
+                                        @endif>{{ $category->name }} ({{ $category->count }})</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
 
                         <div class="col-md-6 col-lg-4">
-                            <div class="select-custom">
-                                <select class="form-control mb-0">
-                                    <option>Par marque @isset($category)
-                                        <?php echo $category->id; ?>
-                                    @endisset</option>
-
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-lg-4">
-                            <button
+                            <button type="submit"
                                 class="btn btn-borders btn-rounded btn-outline-primary ls-25 btn-block">Recherche</button>
                         </div>
                     </div>
                 </form>
             </div>
         </section>
+        <script>
+             $('#select1').trigger('change');
 
-
-
+                $("#select1" )
+                .on( "change", function() {
+                    var str = "";
+                    $( "select option:selected" ).each( function() {
+                      str += $( this ).val() + " ";
+                      window.location = '/product/search/' + str;
+                    } );
+                    
+                  } );
+            
+            </script>
         <div class="container">
             <h2 class="title title-underline pb-1 appear-animate mt-3" data-animation-name="fadeInLeftShorter">Hot
                 Deals</h2>
@@ -229,11 +236,11 @@
                             $product_image = htmlspecialchars($product_image[0]); ?>
                             <div class="col-6 col-sm-4 col-md-3">
                                 <div class="product-default">
-                                    <figure>
+                                    <figure class="preview_product_1" style="background-image: url('https://belhassan.brosstock.com/public/images/product/{{ $product_image }}');}">
                                         <a href="{{ url('product/' . $product->id) }}">
 
-                                            <img src="https://belhassan.brosstock.com/public/images/product/{{ $product_image }}"
-                                                width="280" height="280" alt="{{ $product->name }}" />
+                                            {{-- <img src="https://belhassan.brosstock.com/public/images/product/{{ $product_image }}"
+                                                width="280" height="280" alt="{{ $product->name }}" /> --}}
 
 
 
@@ -291,62 +298,18 @@
 
                             <div class="collapse show" id="widget-body-2">
                                 <div class="widget-body">
-                                    <ul class="cat-list">
-                                        <li>
-                                            <a href="#widget-category-1" data-toggle="collapse" role="button"
-                                                aria-expanded="true" aria-controls="widget-category-1">
-                                                Accessories<span class="products-count">(3)</span>
-                                                <span class="toggle"></span>
-                                            </a>
-                                            <div class="collapse show" id="widget-category-1">
-                                                <ul class="cat-sublist">
-                                                    <li>Caps<span class="products-count">(1)</span></li>
-                                                    <li>Watches<span class="products-count">(2)</span></li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="#widget-category-2" class="collapsed" data-toggle="collapse"
-                                                role="button" aria-expanded="false"
-                                                aria-controls="widget-category-2">
-                                                Dress<span class="products-count">(4)</span>
-                                                <span class="toggle"></span>
-                                            </a>
-                                            <div class="collapse" id="widget-category-2">
-                                                <ul class="cat-sublist">
-                                                    <li>Clothing<span class="products-count">(4)</span></li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="#widget-category-3" class="collapsed" data-toggle="collapse"
-                                                role="button" aria-expanded="false"
-                                                aria-controls="widget-category-3">
-                                                Electronics<span class="products-count">(2)</span>
-                                                <span class="toggle"></span>
-                                            </a>
-                                            <div class="collapse" id="widget-category-3">
-                                                <ul class="cat-sublist">
-                                                    <li>Headphone<span class="products-count">(1)</span></li>
-                                                    <li>Watch<span class="products-count">(1)</span></li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="#widget-category-4" class="collapsed" data-toggle="collapse"
-                                                role="button" aria-expanded="false"
-                                                aria-controls="widget-category-4">
-                                                Fashion<span class="products-count">(6)</span>
-                                                <span class="toggle"></span>
-                                            </a>
-                                            <div class="collapse" id="widget-category-4">
-                                                <ul class="cat-sublist">
-                                                    <li>Shoes<span class="products-count">(4)</span></li>
-                                                    <li>Bag<span class="products-count">(2)</span></li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                        <li><a href="#">Music</a><span class="products-count">(2)</span></li>
+                                    <ul class="cat-list cat_list_scroll">
+                                        @foreach ($categorys as $category)
+                                            <li>
+                                                <a href="{{ route('product.searchByCategorie', $category->id) }}" 
+                                                    aria-expanded="true" aria-controls="widget-category-1">
+                                                    {{ $category->name }} ({{ $category->count }})<span class="products-count"></span>
+                                                    
+                                                </a>
+                                                
+                                            </li>
+                                        @endforeach
+                                        
                                     </ul>
                                 </div>
                                 <!-- End .widget-body -->
@@ -355,16 +318,7 @@
                         </div>
                         <!-- End .widget -->
 
-                        <div class="widget">
-                            <h3 class="widget-title">
-                                <a data-toggle="collapse" href="#widget-body-3" role="button" aria-expanded="true"
-                                    aria-controls="widget-body-3">Marque</a>
-                            </h3>
-
-
-                            <!-- End .collapse -->
-                        </div>
-                        <!-- End .widget -->
+                        
 
 
                     </div>
