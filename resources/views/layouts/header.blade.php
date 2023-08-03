@@ -1,52 +1,57 @@
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="{{ asset('/assets/images/icons/favicon.png')}}">
+<link rel="preload" href="{{ asset('/assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2')}}" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="{{ asset('/assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2')}}" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href="{{ asset('/assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2')}}" as="font" type="font/woff2" crossorigin="anonymous">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('/assets/images/icons/favicon.png')}}">
-    <link rel="preload" href="{{ asset('/assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2')}}" as="font" type="font/woff2"
-        crossorigin="anonymous">
-    <link rel="preload" href="{{ asset('/assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2')}}" as="font" type="font/woff2"
-        crossorigin="anonymous">
-    <link rel="preload" href="{{ asset('/assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2')}}" as="font" type="font/woff2"
-        crossorigin="anonymous">
+<script>
+    WebFontConfig = {
+        google: {
+            families: ['Open+Sans:400,600', 'Poppins:400,500,600,700']
+        }
+    };
+    (function(d) {
+        var wf = d.createElement('script'),
+            s = d.scripts[0];
+        wf.src = '/assets/js/webfont.js';
+        wf.async = true;
+        s.parentNode.insertBefore(wf, s);
+    })(document);
+</script>
 
-    <script>
-        WebFontConfig = {
-            google: { families: [ 'Open+Sans:400,600', 'Poppins:400,500,600,700' ] }
-        };
-        ( function ( d ) {
-            var wf = d.createElement( 'script' ), s = d.scripts[ 0 ];
-            wf.src = '/assets/js/webfont.js';
-            wf.async = true;
-            s.parentNode.insertBefore( wf, s );
-        } )( document );
-    </script>
+<!-- Plugins CSS File -->
+<link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css')}}">
 
-    <!-- Plugins CSS File -->
-    <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css')}}">
+<!-- Main CSS File -->
+<link rel="stylesheet" href="{{ asset('/assets/css/demo42.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('/assets/vendor/fontawesome-free/css/all.min.css')}}">
 
-    <!-- Main CSS File -->
-    <link rel="stylesheet" href="{{ asset('/assets/css/demo42.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/vendor/fontawesome-free/css/all.min.css')}}">
+<!-- OUR CSS File -->
+<link rel="stylesheet" href="{{ asset('/assets/css/style.css')}}">
 
-     <!-- OUR CSS File -->
-     <link rel="stylesheet" href="{{ asset('/assets/css/style.css')}}">
+<!-- CDN Jquery 3.7.0 -->
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 
 
-     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-     <!-- Plugins CSS File -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+<!-- Plugins CSS File -->
+<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
-	<!-- Main CSS File -->
-	<link rel="stylesheet" href="assets/css/style.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/vendor/simple-line-icons/css/simple-line-icons.min.css">
+<!-- Main CSS File -->
+<link rel="stylesheet" href="assets/css/style.min.css">
+<link rel="stylesheet" type="text/css" href="assets/vendor/simple-line-icons/css/simple-line-icons.min.css">
+
+<!-- file Css for Icon Whatsapp Scrooll -->
+<link rel="stylesheet" href="assets/css/icon_whatsapp.css">
+
 
 </head>
 
 <body>
     <div class="page-wrapper">
-        
+
 
         <header class="header">
-           
+
 
             <div class="header-middle sticky-header" data-sticky-options="{'mobile': true}">
                 <div class="container">
@@ -55,19 +60,17 @@
                             <i class="fas fa-bars"></i>
                         </button>
                         <a href="demo42.html" class="logo">
-                            <img src="/assets/images/logobellhsen.png" class="w-100" width="202" height="80"
-                                alt="Porto Logo">
+                            <img src="/assets/images/logobellhsen.png" class="w-100" width="202" height="80" alt="Porto Logo">
                         </a>
                     </div><!-- End .header-left -->
 
                     <div class="header-right w-lg-max">
-                        <div
-                            class="header-icon header-search header-search-inline header-search-category w-lg-max text-right mb-0">
+                        <div class="header-icon header-search header-search-inline header-search-category w-lg-max text-right mb-0">
                             <a href="#" class="search-toggle" role="button"><i class="icon-search-3"></i></a>
                             <div class="container">
                                 <nav class="main-nav w-100">
                                     <ul class="menu w-100">
-                                    
+
                                         <li class="active">
                                             <a href="demo42.html">Accueil</a>
                                         </li>
@@ -170,10 +173,10 @@
                         </a> -->
 
 
-                       
+
                     </div><!-- End .header-right -->
                 </div><!-- End .container -->
             </div><!-- End .header-middle -->
 
-           
+
         </header><!-- End .header -->
