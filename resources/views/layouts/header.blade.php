@@ -41,7 +41,7 @@
 <link rel="stylesheet" type="text/css" href="assets/vendor/simple-line-icons/css/simple-line-icons.min.css">
 
 <!-- file Css for Icon Whatsapp Scrooll -->
-<link rel="stylesheet" href="assets/css/icon_whatsapp.css">
+<link rel="stylesheet" href="/assets/css/icon_whatsapp.css">
 
 
 </head>
@@ -75,7 +75,7 @@
                                             <a href="demo42.html">Accueil</a>
                                         </li>
                                         <li>
-                                            <a href="demo42-shop.html">Pneus</a>
+                                            <a href="{{ route('category.listing', 91) }}">Pneus</a>
                                             <div class="megamenu megamenu-fixed-width megamenu-3cols">
                                                 <div class="row">
                                                     <div class="col-lg-4">

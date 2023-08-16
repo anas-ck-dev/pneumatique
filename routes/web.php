@@ -20,7 +20,23 @@ Route::get('/product/{name}', [ProductController::class, 'showByName']);
 
 Route::get('/product/search/{category}', [ProductController::class, 'searchByCategorie'])->name('product.searchByCategorie');
 
-Route::get('/category/{category}', [ProductController::class, 'cat']);
+Route::get('/product/search/{category}', [ProductController::class, 'searchByCategorie'])->name('product.searchByCategorie');
+
+
+
+Route::get('/category/{category}', [ProductController::class, 'listing'])->name('category.listing');
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::get('/contact', function(){
     return view('contact');

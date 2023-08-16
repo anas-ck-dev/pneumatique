@@ -51,4 +51,11 @@ class Category extends Model
 
         return $totalProductsCount;
     }
+
+    // public function parentsCategorys($category)
+    // {   
+    //     $category->parentCategory()
+        
+    //     // return $this->belongsTo(Category::class, 'parent_id');
+    // }
 }
