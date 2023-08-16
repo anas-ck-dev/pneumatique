@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CommandController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,21 +17,20 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::get('/', [ProductController::class, 'index']);
-Route::get('/product/{name}', [ProductController::class, 'showByName']);
+Route::get('/product/{name}', [ProductController::class, 'showByName'])->name('product.index');
 
 
 Route::get('/product/search/{category}', [ProductController::class, 'searchByCategorie'])->name('product.searchByCategorie');
-
-Route::get('/product/search/{category}', [ProductController::class, 'searchByCategorie'])->name('product.searchByCategorie');
-
+// Route::get('/searcha', [SearchController::class, 'search'])->name('searcha');
 
 
 Route::get('/category/{category}', [ProductController::class, 'listing'])->name('category.listing');
 
 
+// Route::resource('command', [CommandController::class]);
+//
 
-
-
+Route::post('command/store', [CommandController::class, 'store'])->name('command.store');
 
 
 
@@ -46,3 +47,7 @@ Route::get('/contact', function(){
 Route::get('/about', function(){
     return view('about');
 })->name('about');
+
+Route::get('search', [SearchController::class, 'search'])->name('search');
+
+

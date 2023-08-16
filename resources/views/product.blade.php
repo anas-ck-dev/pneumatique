@@ -6,16 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Pneumatiques belhassan</title>
+    <title>{{ $product->name }}</title>
 
-    <meta property="og:url" content="https://www.mywebsite.com" />
+
+    <meta property="og:url" content="{{ url()->full() }}" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="{{ Str::limit($product->name, 60) }}" />
     <meta property="og:description" content="{{ Str::limit($product->product_details, 80) }}" />
-    <meta property="og:image" content="{{ asset($product->image) }}" />
+    <meta property="og:image" content="https://belhassan.brosstock.com/public/images/product/{{ $product->image }}" />
 
     <meta name="keywords" content="Pneumatiques belhassan,Pneumatiques " />
-    <meta name="description" content="Pneumatiques belhassan">
+    <meta name="description" content="{{ $product->product_details }}">
     @include('layouts/header')
     <main class="main">
         <div class="container">
@@ -34,8 +35,8 @@
                             <div class="product-single-carousel owl-carousel owl-theme show-nav-hover">
                                 <div class="product-item">
                                     <img class="product-single-image"
-                                        src="{{ asset('assets/images/products/' .$product->image) }}"
-                                        data-zoom-image="{{ asset('assets/images/products/' . $product->image) }}"
+                                        src="https://belhassan.brosstock.com/public/images/product/{{ $product->image }}"
+                                        data-zoom-image="https://belhassan.brosstock.com/public/images/product/{{ $product->image }}"
                                         width="468" height="468" alt="product" />
                                 </div>
                             </div>
@@ -45,15 +46,25 @@
                             </span>
                         </div>
 
-                        <div class="prod-thumbnail owl-dots">
+                        {{-- <div class="prod-thumbnail owl-dots">
                             <div class="owl-dot">
                                 <img src="/assets/images/demoes/demo42/product/product14-150x150.jpg" width="110"
                                     height="110" alt="product-thumbnail" />
                             </div>
-                        </div>
+                        </div> --}}
                     </div><!-- End .product-single-gallery -->
 
-                    <div class="col-lg-7 col-md-6 product-single-details">
+                    <div class="col-lg-7 col-md-6 product-single-details" style="padding: 50px">
+                        @if (session()->has('success'))
+                            <div class="alert alert-success">
+                                {{ session()->get('success') }}
+                            </div>
+                        @endif
+                        @if (session()->has('failed'))
+                            <div class="alert alert-danger">
+                                {{ session()->get('failed') }}
+                            </div>
+                        @endif
                         <h1 class="product-title" title="{{ $product->name }}">
                             {{ Str::limit($product->name, 60) }}</h1>
 
@@ -91,7 +102,7 @@
 
                         <hr class="short-divider">
 
-                        <div class="price-box">
+                        <div class="price-box mt-5">
                             <span class="product-price"> {{ $product->price }}Dh</span>
                         </div><!-- End .price-box -->
 
@@ -101,20 +112,91 @@
 
                         <ul class="single-info-list">
                             <!---->
-                            <li>
+                            {{-- <li>
                                 SKU:
                                 <strong>654111995-1-1-2</strong>
-                            </li>
+                            </li> --}}
 
                             <li>
                                 CATEGORY:
                                 <strong>
-                                    <a href="#" class="product-category">{{ $product->category->name }} &&
-                                        {{ $product->category->parentCategory->name }}</a>
+                                    <a href="#" class="product-category">{{ $product->category->name
+                                     }}
+                                    </a>
+
+
+                                    <?php
+                                    $disabled="";
+                                    if ($product->qty <= 0) {
+                                        $disabled="disabled";
+                                    ?>
+<br>
+                                        <span class="alert-danger" > Ripture de stock</span>
+
+                                        <?php
+
+                                    }
+
+
+                                    ?>
                                 </strong>
                             </li>
 
 
+                            <form action="{{ route('command.store') }}" method="post">
+                                @csrf
+                                <input type="number"  class="d-none" name="product_id" value="{{ $product->id }}">
+                                <div class="product-container">
+                                    <div class="product-quantity">
+                                        <input type="number" name="quantity"  value="1" min="1" <?php echo $disabled ?>
+                                            max="{{ $product->qty }}" />
+                                        @error('quantity')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="mb-3">
+                                                <label for="full_name">Nom Complet</label>
+                                                <input type="text" id="full_name" name="full_name"
+                                                    class="form-control" required
+                                                    placeholder="Entrez votre nom complet"  <?php echo $disabled ?>>
+                                                @error('full_name')
+                                                    <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="mb-3">
+                                                <label for="address">Address</label>
+                                                <input type="text" id="address" name="address"
+                                                    class="form-control" required placeholder="Entrez votre Address" <?php echo $disabled ?>>
+                                                @error('address')
+                                                    <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-12">
+                                            <div class="mb-3">
+                                                <label for="tel">tele</label>
+                                                <input type="tel" id="tel" name="tel"
+                                                    class="form-control" required placeholder="Entrez votre tel" <?php echo $disabled ?>>
+                                                @error('tel')
+                                                    <div class="alert alert-danger">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary" <?php echo $disabled ?>>shop now</button>
+                                </div>
+                            </form>
                         </ul>
 
                         <div class="product-action d-none">
@@ -147,7 +229,7 @@
                                     window.open(sharingUrl, '_blank', 'width=600,height=400');
                                 }
                             </script>
-                            <div class="social-icons mr-2">
+                            {{-- <div class="social-icons mr-2">
                                 <a href="#" class="social-icon social-facebook icon-facebook" target="_blank"
                                     title="Facebook"></a>
                                 <a href="#" class="social-icon social-twitter icon-twitter" target="_blank"
@@ -158,7 +240,7 @@
                                     target="_blank" title="Google +"></a>
                                 <a href="#" class="social-icon social-mail icon-mail-alt" target="_blank"
                                     title="Mail"></a>
-                            </div><!-- End .social-icons -->
+                            </div><!-- End .social-icons --> --}}
 
                             <a href="wishlist.html" class="btn-icon-wish add-wishlist d-none"
                                 title="Add to Wishlist"><i class="icon-wishlist-2"></i><span>Add to
@@ -325,7 +407,7 @@
                 </div><!-- End .tab-content -->
             </div><!-- End .product-single-tabs -->
 
-            <div class="products-section pt-0 d-none">
+            {{-- <div class="products-section pt-0 d-none">
                 <h2 class="section-title">Related Products</h2>
 
                 <div class="products-slider owl-carousel owl-theme dots-top dots-small dots-simple">
@@ -519,11 +601,36 @@
                         </div><!-- End .product-details -->
                     </div>
                 </div><!-- End .products-slider -->
-            </div><!-- End .products-section -->
+            </div><!-- End .products-section --> --}}
         </div><!-- End .container -->
     </main><!-- End .main -->
 
+    <script>
+        $(function() {
 
+            $('<span class="add" uk-icon="plus">+</span>').insertAfter(
+                '.product-container .product-quantity input');
+            $('<span class="sub" uk-icon="minus">-</span>').insertBefore(
+                '.product-container .product-quantity input');
+
+
+            $('.add').click(function() {
+                var selectedInput = $(this).prev('input');
+                if (selectedInput.val() < 10) {
+                    selectedInput[0].stepUp(1);
+                }
+            });
+
+            $('.sub').click(function() {
+                var selectedInput = $(this).next('input');
+                if (selectedInput.val() > 0) {
+                    selectedInput[0].stepDown(1);
+                }
+            });
+
+
+        });
+    </script>
     @include('layouts/footer')
 
 </html>

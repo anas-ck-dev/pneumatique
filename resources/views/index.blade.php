@@ -8,8 +8,11 @@
 
     <title>Pneumatiques belhassan</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <meta name="keywords" content="Pneumatiques belhassan,Pneumatiques " />
     <meta name="description" content="Pneumatiques belhassan">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     @include('layouts/header')
 
     <main class="main">
@@ -52,7 +55,7 @@
                                         multitude de marques, ce qui nous permet d'avoir des prix adaptés à tous les
                                         budgets.</h2>
                                     <div class="banner-action">
-                                        <a href="demo42-shop.html" class="btn btn-primary btn-rounded btn-icon-right"
+                                        <a href="#produits" class="btn btn-primary btn-rounded btn-icon-right"
                                             role="button">Achetez
                                             <i class="fas fa-arrow-right"></i>
                                         </a>
@@ -63,7 +66,7 @@
                     </div>
                 </div>
             </div>
-            <div class="banner intro-slide2"
+            {{-- <div class="banner intro-slide2"
                 style="background: url(/assets/images/demoes/demo42/slider/slide2.jpg) rgb(255, 255, 255);
                 min-height: 530px; background-position: left center; background-repeat: no-repeat;">
                 <div class="container">
@@ -90,31 +93,34 @@
                                         <img src="/assets/images/demoes/demo42/new_brand3_light.png" width="140"
                                             height="60" alt="brand" />
                                     </div>
-                                    <h3 class="banner-subtitle pt-1 mb-1">Save Up To 30%</h3>
-                                    <h2 class="banner-title pb-1">High Performance Brake Kit</h2>
+                                    <h3 class="banner-subtitle pt-1 mb-1">Économisez jusqu'à 30 % </h3>
+                                    <h2 class="banner-title pb-1">Kit de freinage haute performance
+                                    </h2>
 
-                                    <h5 class="text-price align-top align-left">
-                                        Starting At $<strong class="font-weight-bold">99</strong></h5>
+
 
                                     <ul class="info-list mr-0">
                                         <li><i class="far fa-check-circle"></i>
-                                            <div class="porto-info-list-item-desc">Better Heat Dissipation
+                                            <div class="porto-info-list-item-desc">Meilleure dissipation de la chaleur
+
                                             </div>
                                         </li>
                                         <li><i class="far fa-check-circle"></i>
-                                            <div class="porto-info-list-item-desc">Complete Bolt-On Kit
+                                            <div class="porto-info-list-item-desc">Kit boulonné complet
+
                                             </div>
                                         </li>
                                         <li><i class="far fa-check-circle"></i>
-                                            <div class="porto-info-list-item-desc">Made in the USA
+                                            <div class="porto-info-list-item-desc">
+                                                Fabriqué aux Etats-Unis
                                             </div>
                                         </li>
                                     </ul>
 
                                     <div class="banner-action">
-                                        <a href="demo42-shop.html" class="btn btn-primary btn-rounded btn-icon-right"
-                                            role="button">Shop
-                                            Now
+                                        <a href="#produits" class="btn btn-primary btn-rounded btn-icon-right"
+                                            role="button">Boutique
+                                            Maintenant
                                             <i class="fas fa-arrow-right"></i>
                                         </a>
                                     </div>
@@ -131,93 +137,76 @@
 
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
 
 
         <section class="search-section" style="background-color: #f4f4f4;">
             <div class="container">
-                <div class="search-name d-lg-flex align-items-center appear-animate"
-                    data-animation-name="fadeInUpShorter">
-                    <h2 class="search-title"><i class="icon-business-book"></i>TROUVEZ VOTRE PNEU
-                        :</h2>
+                <div class="row justify-content-center">
 
-                </div>
-                
-                <form method="GET" action="/product/search">
-                    <div class="row search-form appear-animate" data-animation-name="fadeInUpShorter">
-                        <div class="col-md-6 col-lg-4">
-                            <div class="select-custom">
-                                <select class="form-control mb-0" name="search_categorie" id="select1">
-                                    <option disabled>Par Categories</option>
-                                        @empty($category_id)
-                                            <?php $category_id =0;?>
-                                        @endempty
-                                    
-                                    @foreach ($categorys as $category)
-                                        
-                                        <option  value="{{ $category->id }}" @if ($category_id == $category->id)
-                                            selected
-                                        @endif>{{ $category->name }} ({{ $category->count }})</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
+                    <div class="col-sm-12 col-md-4">
+                        <h2 class="search-title p-2 mr-4"><i class="icon-business-book"></i>TROUVEZ VOTRE PRODUIT:</h2>
+                    </div>
 
-                        <div class="col-md-6 col-lg-4">
-                            <button type="submit"
-                                class="btn btn-borders btn-rounded btn-outline-primary ls-25 btn-block">Recherche</button>
+                    <div class="col-sm-12 col-md-3">
+                        <input class="form-control mb-0" type="txt" id="search-input" placeholder="Recherche..." >
+                    </div>
+
+
+                    <div class="col-sm-12 col-md-4">
+                        <div class="select-custom">
+                            <select class="form-control mb-0" name="search_categorie" id="select1">
+                                <option @isset($category) disabled @endisset>
+                                    @isset($category)
+                                        {{ $category->name }}
+                                    @else
+                                        Par Categories
+                                    @endisset
+                                </option>
+                                @empty($category->id)
+                                    <?php $category_id = 0; ?>
+                                    @else
+                                    <?php $category_id = $category->id; ?>
+                                @endempty
+
+                                @foreach ($categorys as $category1)
+                                    <option value="{{ $category1->id }}"
+                                        @if ($category_id == $category1->id) selected @endif>
+                                        {{ $category1->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
-                </form>
+                    <div class="col-sm-12 col-md-1 icon-container">
+                        <a href="/" ><i  class="fa-solid fa-filter-circle-xmark .icon-class"></i></a>
+                    </div>
+                </div>
+
             </div>
         </section>
         <script>
-             $('#select1').trigger('change');
+            $('#select1').trigger('change');
 
-                $("#select1" )
-                .on( "change", function() {
+            $("#select1")
+                .on("change", function() {
                     var str = "";
-                    $( "select option:selected" ).each( function() {
-                      str += $( this ).val() + " ";
-                      window.location = '/product/search/' + str;
-                    } );
-                    
-                  } );
-            
-            </script>
-        <div class="container">
-            <h2 class="title title-underline pb-1 appear-animate mt-3" data-animation-name="fadeInLeftShorter">Hot
-                Deals</h2>
+                    $("select option:selected").each(function() {
+                        str += $(this).val() + " ";
+                        window.location = '/product/search/' + str;
+                    });
+
+                });
+        </script>
+        <div class="container" id="produits">
+            <h2 class="title title-underline pb-1 appear-animate mt-3" data-animation-name="fadeInLeftShorter">Produits</h2>
 
             <nav class="toolbox sticky-header horizontal-filter mb-1" data-sticky-options="{'mobile': true}">
                 <div class="toolbox-left">
-                    <a href="#" class="sidebar-toggle"><svg data-name="Layer 3" id="Layer_3"
-                            viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                            <line x1="15" x2="26" y1="9" y2="9" class="cls-1">
-                            </line>
-                            <line x1="6" x2="9" y1="9" y2="9" class="cls-1">
-                            </line>
-                            <line x1="23" x2="26" y1="16" y2="16" class="cls-1">
-                            </line>
-                            <line x1="6" x2="17" y1="16" y2="16" class="cls-1">
-                            </line>
-                            <line x1="17" x2="26" y1="23" y2="23" class="cls-1">
-                            </line>
-                            <line x1="6" x2="11" y1="23" y2="23" class="cls-1">
-                            </line>
-                            <path d="M14.5,8.92A2.6,2.6,0,0,1,12,11.5,2.6,2.6,0,0,1,9.5,8.92a2.5,2.5,0,0,1,5,0Z"
-                                class="cls-2"></path>
-                            <path d="M22.5,15.92a2.5,2.5,0,1,1-5,0,2.5,2.5,0,0,1,5,0Z" class="cls-2"></path>
-                            <path d="M21,16a1,1,0,1,1-2,0,1,1,0,0,1,2,0Z" class="cls-3"></path>
-                            <path d="M16.5,22.92A2.6,2.6,0,0,1,14,25.5a2.6,2.6,0,0,1-2.5-2.58,2.5,2.5,0,0,1,5,0Z"
-                                class="cls-2"></path>
-                        </svg>
-                        <span>Filter</span>
-                    </a>
 
-                    <div class="toolbox-item filter-toggle d-none d-lg-flex">
+
+                    <div class="toolbox-item filter-toggle  d-lg-flex ">
                         <span>Filters:</span>
                         <a href=#>&nbsp;</a>
                     </div>
@@ -228,22 +217,17 @@
             </nav>
 
             <div class="row main-content-wrap">
-                <div class="col-lg-9 main-content">
-                    <div class="row">
+                <div class="col-lg-9 main-content" id="results-container">
+                    <div class="row" >
 
                         @foreach ($products as $key => $product)
                             <?php $product_image = explode(',', $product->image);
                             $product_image = htmlspecialchars($product_image[0]); ?>
                             <div class="col-6 col-sm-4 col-md-3">
                                 <div class="product-default">
-                                    <figure class="preview_product_1" style="background-image: url('https://belhassan.brosstock.com/public/images/product/{{ $product_image }}');}">
+                                    <figure class="preview_product_1"
+                                        style="background-image: url('https://belhassan.brosstock.com/public/images/product/{{ $product_image }}');}">
                                         <a href="{{ url('product/' . $product->id) }}">
-
-                                            {{-- <img src="https://belhassan.brosstock.com/public/images/product/{{ $product_image }}"
-                                                width="280" height="280" alt="{{ $product->name }}" /> --}}
-
-
-
                                         </a>
                                     </figure>
 
@@ -276,14 +260,10 @@
                                 </div>
                             </div>
                         @endforeach
-                        
-
                         <!-- End .col-sm-4 -->
                     </div>
-                    {{$products->links()}}
+                    {{ $products->links() }}
                     <!-- End .row -->
-
-
                 </div>
                 <!-- End .col-lg-9 -->
 
@@ -292,8 +272,19 @@
                     <div class="sidebar-wrapper">
                         <div class="widget">
                             <h3 class="widget-title">
-                                <a data-toggle="collapse" href="#widget-body-2" role="button" aria-expanded="true"
-                                    aria-controls="widget-body-2">Categories</a>
+                                @isset($category)
+
+                                    @empty(!$category->parent_id)
+                                        <a href="{{route('product.searchByCategorie', $category->parent_id)}}"> <span> < </span> {{ $category->name }}</a>
+                                        @else
+                                        <a data-toggle="collapse" href="#widget-body-2" role="button" aria-expanded="true"
+                                        aria-controls="widget-body-2">{{ $category->name }}</a>
+                                    @endempty
+
+                                    @else
+                                        <a data-toggle="collapse" href="#widget-body-2" role="button" aria-expanded="true"
+                                            aria-controls="widget-body-2">Categories</a>
+                                @endisset
                             </h3>
 
                             <div class="collapse show" id="widget-body-2">
@@ -301,15 +292,15 @@
                                     <ul class="cat-list cat_list_scroll">
                                         @foreach ($categorys as $category)
                                             <li>
-                                                <a href="{{ route('product.searchByCategorie', $category->id) }}" 
+                                                <a href="{{ route('product.searchByCategorie', $category->id) }}"
                                                     aria-expanded="true" aria-controls="widget-category-1">
-                                                    {{ $category->name }} ({{ $category->count }})<span class="products-count"></span>
-                                                    
+                                                    {{ $category->name }} <span class="products-count"></span>
+
                                                 </a>
-                                                
+
                                             </li>
                                         @endforeach
-                                        
+
                                     </ul>
                                 </div>
                                 <!-- End .widget-body -->
@@ -317,9 +308,6 @@
                             <!-- End .collapse -->
                         </div>
                         <!-- End .widget -->
-
-                        
-
 
                     </div>
                     <!-- End .sidebar-wrapper -->
@@ -329,7 +317,86 @@
             <!-- End .row -->
         </div>
     </main>
+    <script>
+        // console.log('here');
+
+        $(document).ready(function(){ // ensure that the page is loaded correctly
+
+            $('#search-input').on('keyup', function(){
+
+                $text = $(this).val();
+                $text = $text.trim(); //clear iynput from white spacees ..
+
+                // if ($text == '')
+                //     return;
+
+                var category_id = {!! json_encode($category->parent_id) !!};
+                $.ajax({
+                    url: "{{ route('search') }}",
+                    method: 'GET',
+                    data: {
+                        searchText: $text,
+                        idParentCategorie: category_id !== null ? category_id : null
+
+                    },
+                    success: function(response) {
+                        var resultsContainer = $('#results-container');
+
+                        resultsContainer.empty();
+
+                        resultsContainer.append(resultsContainer.html(response));
+
+                    },
+                    error: function(xhr, status, error){
+                        console.log('here');
+                        console.error('Error', error);
+                    }
+                });
+
+                $(document).on('click', '.page-link', function (event) {
+                        var category_id = {!! json_encode($category->parent_id) !!};
+                        event.preventDefault();
+
+                        var page = $(this).attr('href');
+                        var searchText = $('#search-input').val();
+
+                        var category_id = {!! json_encode($category->parent_id) !!};
+                        $.ajax({
+                            url: page,
+                            method: 'GET',
+                            data:  {
+                                searchText: $text,
+                                idParentCategorie: category_id !== null ? category_id : null
+                            },
+                            success: function(response) {
+                                var resultsContainer = $('#results-container');
+
+                                resultsContainer.empty();
+
+                                resultsContainer.append(resultsContainer.html(response));
+
+                            },
+                            error: function(xhr, status, error){
+                                console.log('here');
+                                console.error('Error', error);
+                            }
+                        });
+
+                });
+
+
+
+            });
+
+
+
+       });
+
+
+
+    </script>
     <!-- End .main -->
     @include('layouts/footer')
+
 
 </html>
