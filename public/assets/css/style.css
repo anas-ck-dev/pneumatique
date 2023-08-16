@@ -19235,18 +19235,8 @@ i.wishlist-empty {
           width: 25%;
           /* max-height: 100%; */
     }
-
-    /* .icon-container a {
-        display: flex; /* Use flexbox for the anchor as well */
-        justify-content: start;
-        align-items: start;
-        width: 100%; /* Anchor takes full width of the parent */
-        height: 100%; /* Anchor takes full height of the parent */
-    } */
-
-
-
 }
+
 input[type="number"] {
 	-moz-appearance: textfield;
   text-align: center;
