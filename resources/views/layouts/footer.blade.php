@@ -1,198 +1,269 @@
-<footer class="footer bg-dark position-relative" style="background:#000!important">
-    <div class="footer-middle">
-        <div class="container position-static">
-            <div class="row">
-                <div class="col-lg-3 col-sm-6 pb-2 pb-sm-0 d-flex align-items-center">
-                    <div class="widget m-b-3 footer-logo">
-                        <a href="/"><img src="/assets/images/logobellhsen.png" alt="belhassan Logo"></a>
 
-                    </div><!-- End .widget -->
-                </div><!-- End .col-lg-3 -->
-
-                <div class="col-lg-3 col-sm-6 pb-4 pb-sm-0">
-                    <div class="widget mb-2 center-flex" style="">
-                        <ul class="contact-info center-flex">
-                            <li >
-                                <span class="contact-info-label">Address:</span><a target="_blanck" href="https://www.google.com/maps/place/Pneumatiques+belhassan/@33.9425607,-5.2201479,17z/data=!3m1!4b1!4m6!3m5!1s0xda02542b0885c87:0xeee71410cc6cfc3b!8m2!3d33.9425563!4d-5.217573!16s%2Fg%2F11h84z26ft?entry=ttu">
-                                    Pneumatiques belhassan, 51100, Ain
-                                Taoujdate 51100</a>
-                            </li>
-                            <li>
-                                <span class="contact-info-label">Phone:</span><a href="tel:+212664345982">+212 664345982</a>
-                            </li>
-
-                            <li>
-                                <span class="contact-info-label">Working Days/Hours:</span>
-                                Mon - Sun / 9:00 AM - 8:00 PM
-                            </li>
-                        </ul>
-                        <div class="social-icons">
-                            <a href="https://www.facebook.com/people/Belhassan-Spb/pfbid02tjWbENJZXiu7Xi9gHSwv47bSwnkGADwvrv2inWN2TMSAiVaHQsgfPCotEVcqYbRFl/?mibextid=LQQJ4d"
-                                class="social-icon social-facebook icon-facebook" target="_blank" title="Facebook"></a>
-                            <a href="https://instagram.com/belhassan_spb?igshid=Y2I2MzMwZWM3ZA=="
-                                class="social-icon social-instagram icon-instagram" target="_blank" title="instagram">
-                            </a>
-
-                        </div><!-- End .social-icons -->
-                    </div><!-- End .widget -->
-                </div><!-- End .col-lg-3 -->
-
-                <div class="col-lg-3 col-sm-6 pb-2 pb-sm-0">
-                    <div class="widget center-flex">
-                        <h4 class="widget-title pb-1">Rapide lien</h4>
-
-                        <ul class="links rapid-links">
-                            <li class="">
-                                <a href="/">Accueil</a>
-                            </li>
-                            <li @if (str_contains(Request::url(), 'about')) class="active" @endif>
-                                <a href="{{ route('about') }}">About</a>
-                            </li>
-                            <li @if (str_contains(Request::url(), 91)) class="active" @endif>
-                                <a href="{{ route('category.listing', 91) }}">Pneus</a>
-                            </li>
-                            <li @if (str_contains(Request::url(), 90)) class="active" @endif>
-                                <a href="{{ route('category.listing', 90) }}">Chambre aire</a>
-                            </li>
-                            <li @if (str_contains(Request::url(), 89)) class="active" @endif>
-                                <a href="{{ route('category.listing', 89) }}">Materials</a>
-                            </li>
-                            <li @if (str_contains(Request::url(), 93)) class="active" @endif>
-                                <a href="{{ route('category.listing', 93) }}">Services</a>
-                            </li>
-                            <li @if (str_contains(Request::url(), 'contact')) class="active" @endif>
-                                <a href="{{ route('contact') }}">Contact</a>
-                            </li>
-                        </ul>
-
-                    </div><!-- End .widget -->
-                </div><!-- End .col-lg-3 -->
-
-
-            </div><!-- End .row -->
-        </div><!-- End .container -->
-    </div><!-- End .footer-middle -->
-
-    <div class="container">
-        <div class="footer-bottom d-sm-flex align-items-center " style="background:#000!important" >
-            <div class="footer-left pl-5">
-                <span class="footer-copyright">Pneumatique Belhassan. © 2023. All Rights Reserved</span>
+    <!-- Start Footer Area  -->
+    <footer class="axil-footer-area footer-style-1 footer-dark">
+        <!-- Start Footer Top Area  -->
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <!-- Start Single Widget  -->
+                    <div class="col-md-3 col-sm-12">
+                        <div class="axil-footer-widget">
+                            <div class="logo mb--30">
+                                <a href="index.html">
+                                    <img class="light-logo" src="{{asset('assets/images/logo/logo-light.png')}}" alt="Logo Images">
+                                </a>
+                            </div>
+                            <div class="inner">
+                                <p>685 Market Street <br>
+                                Las Vegas, LA 95820, <br>
+                                United States.
+                                </p>
+                                <div class="social-share">
+                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#"><i class="fab fa-instagram"></i></a>
+                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#"><i class="fab fa-discord"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Widget  -->
+                    <!-- Start Single Widget  -->
+                    <div class="col-md-3 col-sm-4">
+                        <div class="axil-footer-widget">
+                            <h5 class="widget-title">ABOUT</h5>
+                            <div class="inner">
+                                <ul>
+                                    <li><a href="about-us.html">About</a></li>
+                                    <li><a href="about-us.html">Who We Are</a></li>
+                                    <li><a href="blog.html">Latest Post</a></li>
+                                    <li><a href="shop-sidebar.html">New Arraival</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Widget  -->
+                    <!-- Start Single Widget  -->
+                    <div class="col-md-3 col-sm-4">
+                        <div class="axil-footer-widget">
+                            <h5 class="widget-title">ACCOUNT</h5>
+                            <div class="inner">
+                                <ul>
+                                    <li><a href="my-account.html">My Account</a></li>
+                                    <li><a href="sign-up.html">Login / Register</a></li>
+                                    <li><a href="cart.html">Cart</a></li>
+                                    <li><a href="wishlist.html">Wishlist</a></li>
+                                    <li><a href="shop.html">Shop</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Widget  -->
+                    <!-- Start Single Widget  -->
+                    <div class="col-md-3 col-sm-4">
+                        <div class="axil-footer-widget">
+                            <h5 class="widget-title">SUPPORT</h5>
+                            <div class="inner">
+                                <ul>
+                                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                    <li><a href="terms-of-service.html">Terms Of Use</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Single Widget  -->
+                </div>
             </div>
-
-
         </div>
-    </div><!-- End .footer-bottom -->
-</footer>
-</div>
+        <!-- End Footer Top Area  -->
+        <!-- Start Copyright Area  -->
+        <div class="copyright-area copyright-default separator-top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-7 col-lg-12">
+                        <div class="copyright-left d-flex flex-wrap justify-content-xl-start justify-content-center">
+                            <ul class="quick-link">
+                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                <li><a href="terms-of-service.html">Terms of Service</a></li>
+                            </ul>
+                            <ul class="quick-link">
+                                <li>© 2023. All rights reserved by <a target="_blank" href="https://axilthemes.com/">Axilthemes</a>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-12">
+                        <div class="copyright-right d-flex flex-wrap justify-content-xl-end justify-content-center align-items-center">
+                            <span class="card-text">Accept For</span>
+                            <ul class="payment-icons-bottom quick-link">
+                                <li><img src="{{asset('assets/images/icons/cart/cart-1.png')}}" alt="paypal cart"></li>
+                                <li><img src="{{asset('assets/images/icons/cart/cart-2.png')}}" alt="paypal cart"></li>
+                                <li><img src="{{asset('assets/images/icons/cart/cart-3.png')}}" alt="paypal cart"></li>
+                                <li><img src="{{asset('assets/images/icons/cart/cart-6.png')}}" alt="paypal cart"></li>
+                                <li><img src="{{asset('assets/images/icons/cart/cart-5.png')}}" alt="paypal cart"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Copyright Area  -->
+            
 
-<div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
+        
+    </footer>
+    <!-- End Footer Area  -->
+    
+    
+    <!-- Header Search Modal End -->
+    <div class="header-search-modal" id="header-search-modal">
+        <button class="card-close sidebar-close"><i class="fas fa-times"></i></button>
+        <div class="header-search-wrap">
+            <div class="card-header">
+                <form action="#">
+                    <div class="input-group bordred">
+                        <input type="search" class="form-control" name="search-input" id="search-input" placeholder="Recherche">
+                        <button type="submit" class="axil-btn btn-bg-primary"><i class="far fa-search"></i></button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-body">
+            
+                <div class="psearch-results" id="results-container"> 
+                </div>
+            </div> 
+        </div>
+    </div>
+    <!-- Header Search Modal End -->    
 
-<div class="mobile-menu-container">
-    <div class="mobile-menu-wrapper">
-        <span class="mobile-menu-close"><i class="fa fa-times"></i></span>
-        <nav class="mobile-nav">
-            <ul class="mobile-menu">
-                <li class="">
-                    <a href="/">Accueil</a>
-                </li>
-                <li @if (str_contains(Request::url(), 'about')) class="active" @endif>
-                    <a href="{{ route('about') }}">About</a>
-                </li>
-                <li @if (str_contains(Request::url(), 91)) class="active" @endif>
-                    <a href="{{ route('category.listing', 91) }}">Pneus</a>
-                </li>
-                <li @if (str_contains(Request::url(), 90)) class="active" @endif>
-                    <a href="{{ route('category.listing', 90) }}">Chambre aire</a>
-                </li>
-                <li @if (str_contains(Request::url(), 89)) class="active" @endif>
-                    <a href="{{ route('category.listing', 89) }}">Materials</a>
-                </li>
-                <li @if (str_contains(Request::url(), 93)) class="active" @endif>
-                    <a href="{{ route('category.listing', 93) }}">Services</a>
-                </li>
-                <li @if (str_contains(Request::url(), 'contact')) class="active" @endif>
-                    <a href="{{ route('contact') }}">Contact</a>
-                </li>
+
+<!-- Quick view panier -->
+<div class="cart-dropdown" id="cart-dropdown">
+    <div class="cart-content-wrap">
+        <div class="cart-header">
+            <h2 class="header-title">Cart review</h2>
+            <button class="cart-close sidebar-close"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-body">
+            <ul class="cart-item-list">
+                @php $total = 0 @endphp
+                @foreach((array) session('cart') as $id => $details)
+                    <li class="cart-item" data-id="{{ $id }}"> <!-- Add data-id attribute here -->
+                        <div class="item-img">
+                            <a href="{{ isset($details['id']) ? url('product/' . $details['id'], ['quantity' => $details['quantity']]) : '#' }}">
+                                <img src="https://belhassan.brosstock.com/public/images/product/{{ $details['photo'] }}" alt="{{ $details['product_name'] }}">
+                            </a>
+                            <button class="close-btn"><i class="fas fa-times"></i></button>
+                        </div>
+                        <div class="item-content">
+                            <div class="product-rating">
+                                <span class="icon">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </span>
+                                <span class="rating-number">(64)</span>
+                            </div>
+                            <h3 class="item-title"><a href="single-product-3.html">{{ $details['product_name'] }}</a></h3>
+                            <div class="item-price">{{ $details['price'] }}<span class="currency-symbol"> Dhs</span></div>
+                            <div class="pro-qty item-quantity" data-th="Quantity">
+                                <input type="number" class="quantity-input quantity cart_update" value="{{ $details['quantity'] }}" min="1">
+                            </div>
+                        </div>
+                    </li>
+                    @php $total += $details['price'] * $details['quantity'] @endphp
+                @endforeach
             </ul>
-
-
-
-        </nav>
-
-        <div class="social-icons">
-            <a href="https://www.facebook.com/people/Belhassan-Spb/pfbid02tjWbENJZXiu7Xi9gHSwv47bSwnkGADwvrv2inWN2TMSAiVaHQsgfPCotEVcqYbRFl/?mibextid=LQQJ4d"
-                class="social-icon social-facebook icon-facebook" target="_blank" title="facebook">
-            </a>
-
-            <a href="https://instagram.com/belhassan_spb?igshid=Y2I2MzMwZWM3ZA=="
-                class="social-icon social-instagram icon-instagram" target="_blank" title="instagram">
-            </a>
         </div>
-    </div><!-- End .mobile-menu-wrapper -->
-</div><!-- End .mobile-menu-container -->
+        <div class="cart-footer">
+            <h3 class="cart-subtotal">
+                <span class="subtotal-title">Subtotal:</span>
+                <span class="subtotal-amount">$ {{ $total }}</span>
+            </h3>
+            <div class="group-btn">
+                <a href="{{ route('cart') }}" class="axil-btn btn-bg-primary viewcart-btn">View Cart</a>
+                <a href="checkout.html" class="axil-btn btn-bg-secondary checkout-btn">Checkout</a>
+            </div>
+        </div>
+    </div>
 
+    <script>
+        $(document).ready(function () {
+            $(".quantity-input").change(function (e) {
+                e.preventDefault();
+                console.log("Quantity changed!");
+                var ele = $(this);
 
-<div class="phone-call cbh-phone cbh-green cbh-show  cbh-static" id="clbh_phone_div" style="">
-    <a id="WhatsApp-button" href="https://wa.me/212664345982" target="_blank" class="phoneJs"
-        title="WhatsApp 360imagem">
-        <div class="cbh-ph-circle"></div>
-        <div class="cbh-ph-circle-fill"></div>
-        <div class="cbh-ph-img-circle1"></div>
-    </a>
+                $.ajax({
+                    url: '{{ route('update_cart') }}',
+                    method: 'patch',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        id: ele.parents("li").data("id"),
+                        quantity: ele.val(),
+                    },
+                    success: function (response) {
+                        // Instead of reloading the entire page, you can manually update the UI
+                        updateSubtotal();
+                    },
+                    error: function (xhr, status, error) {
+                        console.log('Error', error);
+                    },
+                });
+            });
+
+            function updateSubtotal() {
+                var total = 0;
+                $(".cart-item").each(function () {
+                    var price = parseFloat($(this).find(".item-price").text().replace(' Dhs', '').trim());
+                    var quantity = parseInt($(this).find(".quantity-input").val());
+                    total += price * quantity;
+                });
+
+                // Update the subtotal in the UI
+                $(".subtotal-amount").text('$ ' + total.toFixed(2));
+            }
+
+            $(".close-btn").click(function (e) {
+                e.preventDefault();
+                console.log("Close button clicked!");
+                var ele = $(this);
+
+                if (confirm("Do you really want to remove?")) {
+                    $.ajax({
+                        url: '{{ route('remove_from_cart') }}',
+                        method: 'DELETE',
+                        data: {
+                            _token: '{{ csrf_token() }}',
+                            id: ele.parents("li").data("id"),
+                        },
+                        success: function (response) {
+                            // Remove the item from the UI without reloading the page
+                            ele.closest("li").remove();
+                            // Update the subtotal
+                            updateSubtotal();
+                            //updateCartItemCount();
+                        },
+                        error: function (xhr, status, error) {
+                            console.log('Error', error);
+                        },
+                    });
+                }
+            });
+
+            function updateCartItemCount() {
+                // Assuming you have an element with the id "cart-count" to display the count
+                var itemCount = $(".cart-item").length;
+                $("#cart-count").text(itemCount);
+            }
+        });
+    </script>
 </div>
 
-{{-- <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a> --}}
 
-<!-- Plugins JS File -->
-<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script src="{{ asset('/assets/js/jquery.min.js') }}"></script>
-<script src="{{ asset('/assets/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('/assets/js/optional/isotope.pkgd.min.js') }}"></script>
-<script src="{{ asset('/assets/js/plugins.min.js') }}"></script>
-<script src="{{ asset('/assets/js/jquery.appear.min.js') }}"></script>
-<script src="{{ asset('/assets/js/jquery.plugin.min.js') }}"></script>
-
-<!-- Main JS File -->
-<script src="{{ asset('/assets/js/main.min.js') }}"></script>
-<script>
-    (function() {
-        var js =
-            "window['__CF$cv$params']={r:'7e41bb8e38741854',m:'ZtJgruW5gPYGuFgw7YgisfiFJGW86guwxfpe7uxGT.Y-1688917931-0-AeqjtFZftk3M33h30vfxRAvas8oq94x5EWw+w54Y7iU6'};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='../../cdn-cgi/challenge-platform/h/g/scripts/jsd/19b997cb/invisible.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";
-        var _0xh = document.createElement('iframe');
-        _0xh.height = 1;
-        _0xh.width = 1;
-        _0xh.style.position = 'absolute';
-        _0xh.style.top = 0;
-        _0xh.style.left = 0;
-        _0xh.style.border = 'none';
-        _0xh.style.visibility = 'hidden';
-        document.body.appendChild(_0xh);
-
-        function handler() {
-            var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;
-            if (_0xi) {
-                var _0xj = _0xi.createElement('script');
-                _0xj.nonce = '';
-                _0xj.innerHTML = js;
-                _0xi.getElementsByTagName('head')[0].appendChild(_0xj);
-            }
-        }
-        if (document.readyState !== 'loading') {
-            handler();
-        } else if (window.addEventListener) {
-            document.addEventListener('DOMContentLoaded', handler);
-        } else {
-            var prev = document.onreadystatechange || function() {};
-            document.onreadystatechange = function(e) {
-                prev(e);
-                if (document.readyState !== 'loading') {
-                    document.onreadystatechange = prev;
-                    handler();
-                }
-            };
-        }
-    })();
-
-
-</script>
-</body>
+<!-- End Quick view panier -->

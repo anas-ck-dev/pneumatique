@@ -2,7 +2,6 @@
 <html lang="en">
 
 
-<!-- Mirrored from portotheme.com/html/porto_ecommerce/demo42-shop.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jul 2023 16:22:41 GMT -->
 
 <head>
     <meta charset="UTF-8">
@@ -23,7 +22,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="/"><i class="icon-home"></i></a></li>
-                    <li class="breadcrumb-item active" aria-current="page">SHOP</li>
+                    <li class="breadcrumb-item active" aria-current="page"></li>
                 </ol>
             </nav>
 
@@ -34,61 +33,24 @@
                     <div class="row">
                         @if ($products->count())
                             @foreach ($products as $product)
+						  <?php
+						
+				$product_image = explode(",", $product->image); // Split the string into an array
+                $product_image = htmlspecialchars($product_image[count($product_image) - 1]); // Get the last element
+						
+						?>
                                 <div class="col-6 col-sm-4">
-                                    {{-- <div class="product-default inner-quickview inner-icon">
-                                        <figure>
-                                            <a href="{{ url('product/' . $product->id) }}">
-                                                <img src="https://belhassan.brosstock.com/public/images/product/{{ $product->image }}">
-                                            </a>
-                                            <div class="label-group">
-                                                <span class="product-label label-sale">-13%</span>
-                                            </div>
-                                            <div class="btn-icon-group">
-                                                <a href="#" class="btn-icon btn-add-cart product-type-simple"><i
-                                                        class="icon-shopping-cart"></i></a>
-                                            </div>
-
-                                        </figure>
-                                        <div class="product-details">
-
-                                            <h3 class="product-title">
-                                                <a href="demo42-product.html"
-                                                    title="{{ $product->name }}">{{ Str::limit($product->name, 40) }}
-                                                </a>
-                                                {{ $product->category_id }} {{ $product->category->name }}
-                                            </h3>
-                                            <div class="ratings-container">
-                                                <div class="product-ratings">
-                                                    <span class="ratings" style="width:0%"></span>
-                                                    <!-- End .ratings -->
-                                                    <span class="tooltiptext tooltip-top">0</span>
-                                                </div>
-                                                <!-- End .product-ratings -->
-                                            </div>
-                                            <!-- End .product-container -->
-                                            <div class="price-box">
-                                                <del class="old-price">$299.00</del>
-                                                <span class="product-price">$259.00</span>
-                                            </div>
-                                            <!-- End .price-box -->
-                                        </div>
-                                        <!-- End .product-details -->
-                                    </div> --}}
+                               
 
                                     <div class="product-default">
                                         <figure class="preview_product_1"
-                                            style="background-image: url('https://belhassan.brosstock.com/public/images/product/{{ $product->image }}');}">
-                                            <a href="{{ url('product/' . $product->id) }}">
-                                            </a>
-                                        </figure>
+                                        style="background-image:url('https://paradechy.com/public/images/product/{{ $product_image }}');">
+                                        <a href="{{ url('product/' . $product->id) }}">
+                                        </a>
+                                    </figure>
 
                                         <div class="product-details">
-                                            {{-- <div class="category-wrap">
-                                                <div class="category-list">
-                                                    <a href=""
-                                                        class="product-category">{{ $product->category->name }}</a>
-                                                </div>
-                                            </div> --}}
+                            
 
                                             <h3 class="product-title">
                                                 <a href="{{ url('product/' . $product->id) }}">{{ $product->name }}</a>

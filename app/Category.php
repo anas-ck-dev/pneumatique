@@ -32,30 +32,6 @@ class Category extends Model
         return $this->hasMany(Category::class, 'parent_id');
     }
 
-    public function getTotalProductsCount()
-    {
-        $totalProductsCount = $this->products->count();
-        echo "1=> " . $this->id . " " . $totalProductsCount . "</br>";
-
-        if ($this->filsCategorys) {
-            // $totalProductsCount += $this->filsCategorys->getTotalProductsCount();
-            // echo $this->parentCategory->id . " " . $totalProductsCount . "</br>";
-            foreach ($this->filsCategorys as $cat) {
-                $totalProductsCount += $cat->getTotalProductsCount();
-                echo "2=> id " . $cat->id . " parent  ". $cat->parentCategory-> id . " total " . $totalProductsCount . "</br>";
-
-                // echo "3=> " . "id " . $cat->id . " name " . $cat->name . " </br>";
-            }
-            // echo "have a parent ";
-        }
-
-        return $totalProductsCount;
-    }
-
-    // public function parentsCategorys($category)
-    // {   
-    //     $category->parentCategory()
-        
-    //     // return $this->belongsTo(Category::class, 'parent_id');
-    // }
+ 
 }
+

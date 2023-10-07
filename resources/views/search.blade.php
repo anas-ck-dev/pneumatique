@@ -1,46 +1,49 @@
-<div class="row" >
-@foreach ($products as $key => $product)
-<?php $product_image = explode(',', $product->image);
-$product_image = htmlspecialchars($product_image[0]); ?>
-
-<div class="col-6 col-sm-4 col-md-3">
-    <div class="product-default">
-        <figure class="preview_product_1"
-            style="background-image: url('https://belhassan.brosstock.com/public/images/product/{{ $product_image }}');}">
-            <a href="{{ url('product/' . $product->id) }}">
-            </a>
-        </figure>
-
-        <div class="product-details">
-            <div class="category-wrap">
-                <div class="category-list">
-                    <a href=""
-                        class="product-category">{{ $product->category->name }}</a>
+@if ($searchText)
+    @if ($products->count() > 0)
+        @foreach ($products as $key => $product)
+            <?php
+                $product_images = explode(",", $product->image);
+                $product_image = htmlspecialchars(end($product_images));
+            ?>
+            <div class="axil-product-list">
+                <div class="thumbnail">
+                    <a href="{{ url('product/' . $product->id) }}">
+                        <img style="width: 200px; height: 200px;" src="{{ asset('images/product/' . $product_image) }}" alt="Product Images">
+                    </a>
+                </div>
+                <div class="product-content axil-product">
+                    <div class="product-rating">
+                        <span class="rating-icon">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fal fa-star"></i>
+                        </span>
+                    </div>
+                    <h6 class="product-title"><a href="{{ url('product/' . $product->id) }}">{{ $product->name }}</a></h6>
+                    <div class="product-price-variant">
+                        <span class="price current-price">{{ $product->price }}</span>
+                    </div>
+                    <ul class="cart-action product">
+                        <li class="select-option"><a href="{{ url('product/' . $product->id) }}" tabindex="0">Acheter</a></li>
+                    </ul>
                 </div>
             </div>
+        @endforeach
+    @else
+        <div class="alert alert-info w-100 pl-5">No products available.</div>
+    @endif
+@else
+    <div class="alert alert-info w-100 pl-5">Search for products.</div>
+@endif
 
-            <h3 class="product-title">
-                <a href="{{ url('product/' . $product->id) }}">{{ $product->name }}</a>
-            </h3>
 
-            <div class="ratings-container">
-                <div class="product-ratings">
-                    <span class="ratings"
-                        style="width:{{ $product->ratings_percentage }}"></span>
-                    <!-- Assuming $product->ratings_percentage contains the percentage of ratings -->
-                    <span class="tooltiptext tooltip-top"></span>
-                </div>
-            </div>
 
-            <div class="price-box">
 
-                <span class="product-price">{{ $product->price }}Dh</span>
-            </div>
-        </div>
-    </div>
-</div>
-@endforeach
-</div>
-{{ $products->links() }}
 
-dfshsghsd
+
+
+
+
+

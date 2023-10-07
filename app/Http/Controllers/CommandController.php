@@ -36,28 +36,35 @@ class CommandController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        // dd($request);
+        if (!auth()->check()) {
+            // Store the previous URL in the session
+            session()->put('previous_url', url()->previous());
+            return redirect()->route('login.perform')->with('failed', 'You need to be logged in to place an order.');
+        }
+    
         $command = $request->validate([
-            'full_name' => 'string|required|min:4',
-            'address' => 'string|required|min:4',
+            'full_name' => 'string|required|min:2',
+            'address' => 'string|required|min:2',
             'tel' => 'numeric|required|min:10',
             'product_id' => 'numeric|required',
             'quantity' => 'numeric|required|min:1|max:10'
-
         ]);
-
+    
         $product =  Product::find($command['product_id']);
-
+    
         $qte = $command['quantity'];
-
-        if ( $product->qty < $qte)
-            return redirect()->route('product.index',$command['product_id'])->with('failed', 'Grand Quantite');
-
+    
+        if ($product->qty < $qte) {
+            return redirect()->route('product.index', $command['product_id'])->with('failed', 'Grand Quantite');
+        }
+    
         $command = Command::create($command);
-        return redirect()->route('product.index', $command['product_id'])->with('success', 'votre command est bient etablier');
-
+    
+        
+    
+        return redirect(session()->get('previous_url', route('product.index', $command['product_id'])))->with('success', 'Nous vous remercions d\'avoir passé commande.');
     }
+    
 
     /**
      * Display the specified resource.

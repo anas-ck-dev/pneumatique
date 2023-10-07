@@ -1,145 +1,117 @@
-<!-- Favicon -->
-<link rel="icon" type="image/x-icon" href="@yield('icon', asset('/assets/images/logobbvbellhsen.png') )">
-<link rel="preload" href="{{ asset('/assets/vendor/fontawesome-free/webfonts/fa-regular-400.woff2') }}" as="font"
-    type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="{{ asset('/assets/vendor/fontawesome-free/webfonts/fa-solid-900.woff2') }}" as="font"
-    type="font/woff2" crossorigin="anonymous">
-<link rel="preload" href="{{ asset('/assets/vendor/fontawesome-free/webfonts/fa-brands-400.woff2') }}" as="font"
-    type="font/woff2" crossorigin="anonymous">
 
-<script>
-    WebFontConfig = {
-        google: {
-            families: ['Open+Sans:400,600', 'Poppins:400,500,600,700']
-        }
-    };
-    (function(d) {
-        var wf = d.createElement('script'),
-            s = d.scripts[0];
-        wf.src = '/assets/js/webfont.js';
-        wf.async = true;
-        s.parentNode.insertBefore(wf, s);
-    })(document);
-</script>
+<!DOCTYPE html>
+<head>
 
-<!-- Plugins CSS File -->
-<link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css') }}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta name="keywords" content="Pneumatiques belhassan,Pneumatiques " />
+    <meta name="description" content="Pneumatiques belhassan">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/favicon.png')}}">
 
-<!-- Main CSS File -->
-<link rel="stylesheet" href="{{ asset('/assets/css/demo42.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('/assets/vendor/fontawesome-free/css/all.min.css') }}">
-
-<!-- OUR CSS File -->
-<link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
-
-<!-- CDN Jquery 3.7.0 -->
-<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-
-
-<!-- Plugins CSS File -->
-<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-
-<!-- Main CSS File -->
-<link rel="stylesheet" href="/assets/css/style.min.css">
-<link rel="stylesheet" type="text/css" href="/assets/vendor/simple-line-icons/css/simple-line-icons.min.css">
-
-<!-- file Css for Icon Whatsapp Scrooll -->
-<link rel="stylesheet" href="/assets/css/icon_whatsapp.css">
-
-
-
+    @include("layouts.style_links")
+ 
 </head>
 
-<body>
-    <div class="page-wrapper">
+<body class="sticky-header newsletter-popup-modal">
+<a href="#top" class="back-to-top" id="backto-top"><i class="fal fa-arrow-up"></i></a>
+    <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+<![endif]-->
+    <header class="header axil-header header-style-1" id="top">
+        <!-- Start Mainmenu Area  -->
+        <div id="axil-sticky-placeholder"></div>
+        <div class="axil-mainmenu">
+            <div class="container">
+                <div class="header-navbar">
+                    <div class="header-brand">
+                        <a href="/" class="logo logo-dark">
+                            <img src="{{asset('assets')}}/images/logo.png" alt="Site Logo" width="110px">
+                        </a>
+                        <a href="index.html" class="logo logo-light">
+                            <img src="assets/images/logo/logo-light.png" alt="Site Logo">
+                        </a>
+                    </div>
+                    <div class="header-main-nav">
+                        <!-- Start Mainmanu Nav -->
+                        <nav class="mainmenu-nav">
+                            <button class="mobile-close-btn mobile-nav-toggler"><i class="fas fa-times"></i></button>
+                            <div class="mobile-nav-brand">
+                                <a href="index.html" class="logo">
+                                    <img src="assets/images/logo/logo.png" alt="Site Logo">
+                                </a>
+                            </div>
+                            <ul class="mainmenu">
+                                <li >
+                                    <a href="/">Accueil</a>
+                                </li>
+                                <li><a href="{{route('contact')}}">Contact</a></li>
+                            </ul>
+                        </nav>
+                        <!-- End Mainmanu Nav -->
+                    </div>
+                    <div class="header-action">
+                        <ul class="action-list">
+                            <li class="axil-search d-xl-block d-none">
+                                <input type="search" class="placeholder product-search-input" name="search2" id="search2" value="" maxlength="128" placeholder="Recherche" autocomplete="off">
+                                <button type="submit" class="icon wooc-btn-search">
+                                    <i class="flaticon-magnifying-glass"></i>
+                                </button>
+                            </li>
+                          
+                            <li class="shopping-cart">
+                                <a href="#" class="cart-dropdown-btn">
+                                    <span class="cart-count" id="cart-count">{{ count((array) session('cart')) }}</span>
+                                    <i class="flaticon-shopping-cart"></i>
+                                </a>
+                            </li>
+                            
+                            @guest
+                            <li class="my-account">
 
+                                <a href= "{{route('login.perform')}}">
+                                            <i class="flaticon-person"></i>
+                                  
+                                </a>
+                            </li>
+                            @endguest
 
-        <header class="header">
+                            @auth
 
-
-            <div class="header-middle sticky-header" data-sticky-options="{'mobile': true}">
-                <div class="container">
-                    <div class="header-left col-lg-2 pl-0 header-mobil-1">
-                        <button class="mobile-menu-toggler text-dark mr-2" type="button">
-                            <i class="fas fa-bars"></i>
-                        </button>
-                        <div class="div-logo">
-
-                            <a href="/" class="">
-                                <img  src="/assets/images/logobellhsen.png"
-                                alt="belhassan Logo" class="logo-mobil">
-                            </a>
-                        </div>
-                    </div><!-- End .header-left -->
-
-                    <div class="header-right w-lg-max">
-                        <div
-                            class="header-icon header-search header-search-inline header-search-category w-lg-max text-right mb-0">
-                            <a href="#" class="search-toggle" role="button"><i class="icon-search-3"></i></a>
-                            <div class="container">
-                                <nav class="main-nav w-100">
-                                    <ul class="menu w-100">
-
-                                        <li class="">
-                                            <a href="/">Accueil</a>
-                                        </li>
-
-                                        <li @if (str_contains(Request::url(), 'about')) class="active" @endif>
-                                            <a href="{{ route('about') }}">About</a>
-                                        </li>
-                                        <li @if (str_contains(Request::url(), 91)) class="active" @endif>
-                                            <a href="{{ route('category.listing', 91) }}">Pneus</a>
-                                        </li>
-                                        <li @if (str_contains(Request::url(), 90)) class="active" @endif>
-                                            <a href="{{ route('category.listing', 90) }}">Chambre aire</a>
-                                        </li>
-                                        <li @if (str_contains(Request::url(), 89)) class="active" @endif>
-                                            <a href="{{ route('category.listing', 89) }}">Materials</a>
-                                        </li>
-                                        <li @if (str_contains(Request::url(), 93)) class="active" @endif>
-                                            <a href="{{ route('category.listing', 93) }}">Services</a>
-                                        </li>
-                                        <li @if (str_contains(Request::url(), 'contact')) class="active" @endif>
-                                            <a href="{{ route('contact') }}">Contact</a>
-                                        </li>
-
-
-
+                            <li class="my-account">
+                                <a href="javascript:void(0)">
+                                    <i class="flaticon-person"></i>
+                                </a>
+                                <div class="my-account-dropdown">
+                                    <ul>
+                                        {{auth()->user()->name}}
+                                            <li>
+                                                <a href="{{route('profile.edit')}}">My Account</a>
+                                            </li>
                                     </ul>
-                                </nav>
-                            </div>
-                        </div><!-- End .header-search -->
 
+                                        {{auth()->user()->name}}
+                                        <div class="login-btn">
+                                            <a href="{{route('logout.perform')}}" class="axil-btn btn-bg-primary">Logout</a>
+                                        </div>
 
-                        <div class="sicon-box mb-0 d-none d-lg-flex align-items-center pr-3 mr-1">
-                            <div class=" sicon-default">
-                                <i class="icon-phone-1"></i>
-                            </div>
-                            <div class="sicon-header">
-                                <h4 class="sicon-title ls-n-25">APPELEZ-NOUS MAINTENANT</h4>
-                                <p>0532081605 </p>
-                                <p>0664345982 </p>
-
-                            </div> <!-- header -->
-                        </div>
-
-                        <!-- <span class="separator d-none d-lg-block mr-4"></span>
-
-                        <a href="login.html" class="d-lg-block d-none">
-                            <div class="header-user">
-                                <i class="icon-user-2"></i>
-                                <div class="header-userinfo">
-                                    <span>Welcome</span>
-                                    <h4>Sign In / Register</h4>
                                 </div>
-                            </div>
-                        </a> -->
+                            </li>
+                            @endauth
 
+                            <li class="axil-mobile-toggle">
+                                <button class="menu-btn mobile-nav-toggler">
+                                    <i class="flaticon-menu-2"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Mainmenu Area -->
+    </header>   
+    
+ 
 
-
-                    </div><!-- End .header-right -->
-                </div><!-- End .container -->
-            </div><!-- End .header-middle -->
-
-
-        </header><!-- End .header -->

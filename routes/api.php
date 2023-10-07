@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\api\CategoriesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Tymon\JWTAuth\Facades\JWTAuth;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::group(['middleware' => ['api', 'checkPassword']], function () {
+//     Route::post('/categories', [CategoriesController::class, 'index'])
+//         ->name('categories.listing');
+//     Route::post('/category/{id}', [CategoriesController::class, 'getCategoryById'])
+//         ->name('category.listing');
+//     Route::post('/change_category_status', [CategoriesController::class, 'changecategory_status'])
+//         ->name('category.listing');
+// });

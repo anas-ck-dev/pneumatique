@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
-<!-- Mirrored from portotheme.com/html/porto_ecommerce/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 09 Jul 2023 16:11:56 GMT -->
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>belhassan- Bootstrap eCommerce Template</title>
-
-    <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="belhassan- Bootstrap eCommerce Template">
-    <meta name="author" content="SW-THEMES">
-
-
-    <!DOCTYPE html>
+   <!DOCTYPE html>
     <html lang="en">
 
     <head>
@@ -56,9 +38,7 @@
                             l'industrie ou que vous cherchiez à améliorer vos services existants, notre équipe d'experts
                             est là pour vous conseill
                         </p>
-                        <div class="row">
-                            <button class="btn m-5">Products</button>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="col-md-6"
